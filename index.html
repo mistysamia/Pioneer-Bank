@@ -16,14 +16,69 @@
     <div id="login-area">
         <h1 class=" text-center">Welcome to Pioneer Bank</h1>
         <div class="form ">
-            <h4>Login</h4>
-            <input type="text" class="form-control"  placeholder="name@example.com">
+            <h3>Login</h3>
+            <input type="text" class="form-control" placeholder="name@example.com">
             <br>
             <input type="password" class="form-control">
             <br>
-            <button class="btn btn-success">Submit</button>
+            <button id="Login" class="btn btn-success">Submit</button>
         </div>
     </div>
+
+    <div id="transition-area">
+        <h1 class="text-center">Transition</h1>
+        <div class="row">
+            <div class="col-md-3 deposit eachSection">
+                <div class="eachBox">
+                    <h5>Deposit</h5>
+                    <h1>$00</h1>
+                </div>
+            </div>
+            <div class="col-md-3 withdraw eachSection">
+                <div class="eachBox">
+                    <h5>Withdraw</h5>
+                    <h1>$00</h1>
+                </div>
+            </div>
+            <div class="col-md-3 balance eachSection">
+                <div class="eachBox">
+                    <h5>Balance</h5>
+                    <h1>$1240</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4  eachSection2">
+                <div class="eachBox2">
+                    <h3>Deposit</h3>
+                    <br>
+                    <input type="text" class="form-control" placeholder="Amount you want to deposit">
+                    <br>
+                    <button id="Login" class="btn btn-success">Deposit</button>
+                </div>
+            </div>
+            <div class="col-md-4  eachSection2">
+               
+                <div class="eachBox2">
+                    <h3>Withdraw</h3>
+                    <br>
+                    <input type="text" class="form-control" placeholder="Amount you want to withdraw">
+                    <br>
+                    <button id="Login" class="btn btn-success">Withdraw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var login = document.getElementById('Login');
+        login.addEventListener('click', function () {
+            document.getElementById('login-area').style.display = "none";
+            document.getElementById('transition-area').style.display = "block";
+        });
+    </script>
 </body>
 
 </html>
