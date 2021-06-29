@@ -1,0 +1,9 @@
+body{
+    padding: 100px;
+}
+.form{
+    margin-top: 50px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px grey;
+}
