@@ -31,19 +31,19 @@
             <div class="col-md-3 deposit eachSection">
                 <div class="eachBox">
                     <h5>Deposit</h5>
-                    <h1>$00</h1>
+                    <h1>$<span id="depositShow">00</span></h1>
                 </div>
             </div>
             <div class="col-md-3 withdraw eachSection">
                 <div class="eachBox">
                     <h5>Withdraw</h5>
-                    <h1>$00</h1>
+                    <h1>$<span id="withdrawShow">00</span></h1>
                 </div>
             </div>
             <div class="col-md-3 balance eachSection">
                 <div class="eachBox">
                     <h5>Balance</h5>
-                    <h1>$1240</h1>
+                    <h1>$<span id="balanceShow">1240</span></h1>
                 </div>
             </div>
         </div>
@@ -53,18 +53,19 @@
                 <div class="eachBox2">
                     <h3>Deposit</h3>
                     <br>
-                    <input type="text" class="form-control" placeholder="Amount you want to deposit">
+                    <input type="text" id="DepositInput" class="form-control" placeholder="Amount you want to deposit">
                     <br>
-                    <button id="Login" class="btn btn-success">Deposit</button>
+                    <button id="DepositBtn" class="btn btn-success">Deposit</button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="eachBox2">
                     <h3>Withdraw</h3>
                     <br>
-                    <input type="text" class="form-control" placeholder="Amount you want to withdraw">
+                    <input type="text" id="WithdrawInput" class="form-control"
+                        placeholder="Amount you want to withdraw">
                     <br>
-                    <button id="Login" class="btn btn-success">Withdraw</button>
+                    <button id="WithdrawBtn" class="btn btn-success">Withdraw</button>
                 </div>
             </div>
         </div>
@@ -77,6 +78,45 @@
             document.getElementById('login-area').style.display = "none";
             document.getElementById('transition-area').style.display = "block";
         });
+
+        var deposit = document.getElementById('DepositBtn');
+        deposit.addEventListener('click', function () {
+            var depositAmount = document.getElementById('DepositInput').value;
+            var depositFloatAmount = parseFloat(depositAmount);
+        
+            //Taking The prev deposit Amount
+            var prevDepositAmount = document.getElementById('depositShow').innerText;
+            var depositFloatPrevAmount = parseFloat(prevDepositAmount);
+            var sum = depositFloatPrevAmount + depositFloatAmount;
+            document.getElementById('depositShow').innerText = sum;
+
+            //Taking The prev Balance Amount
+            var prevBalanceAmount = document.getElementById('balanceShow').innerText;
+            var BalanceFloatPrevAmount = parseFloat(prevBalanceAmount);
+            var newBal = BalanceFloatPrevAmount + depositFloatAmount;
+            document.getElementById('balanceShow').innerText = newBal;
+        });
+
+         var withdraw= document.getElementById('WithdrawBtn');
+           withdraw.addEventListener('click',function(){
+              var withdrawAmount=document.getElementById('WithdrawInput').value;
+              var withdrawFloatAmount=parseFloat(withdrawAmount);
+
+             
+            //Taking The prev Withdraw Amount
+           var prevWithdrawAmount = document.getElementById('withdrawShow').innerText;
+            var WithdrawFloatPrevAmount = parseFloat(prevWithdrawAmount);
+            var sum = WithdrawFloatPrevAmount + withdrawFloatAmount;
+            document.getElementById('withdrawShow').innerText = sum;
+
+            //Taking The prev Balance Amount
+            var prevBalanceAmount = document.getElementById('balanceShow').innerText;
+            var BalanceFloatPrevAmount = parseFloat(prevBalanceAmount);
+            var newBal = BalanceFloatPrevAmount - withdrawFloatAmount;
+            document.getElementById('balanceShow').innerText = newBal;
+             
+          });
+
     </script>
 </body>
 
